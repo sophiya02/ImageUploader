@@ -1,0 +1,28 @@
+<div style="text-align: left;">
+  <button mat-button routerLink="/image-upload">
+    <mat-icon>arrow_left</mat-icon>
+    Back
+  </button>
+</div>
+<mat-card class="main-card">
+
+  <mat-card-header class="uploaded-main-card-head">
+      <mat-icon class="icon">check_circle</mat-icon>
+      <mat-card-title>Successfully Uploaded</mat-card-title>
+  </mat-card-header>
+  <img mat-card-image [src]="link" class="uploaded-image">
+  <mat-card-content class="img-bg">
+
+  </mat-card-content>
+
+  <mat-card-content class="link">
+    <p #copyText>{{link}}</p>
+    <button mat-raised-button #matTooltip="matTooltip"
+    matTooltip="Copied To Clipboard"
+    (mouseenter)="$event.stopImmediatePropagation()"
+    (mouseleave)="$event.stopImmediatePropagation()"
+    (click)="matTooltip.show()" color="primary"
+    [cdkCopyToClipboard]="copyText.innerText">Copy</button>
+  </mat-card-content>
+</mat-card>
+

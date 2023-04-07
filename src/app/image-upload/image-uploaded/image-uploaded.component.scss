@@ -1,0 +1,57 @@
+
+.main-card {
+  width: max-content;
+  height: max-content;
+  padding: 2.5rem;
+  border-radius: 12px;
+  align-items: center;
+  justify-content: space-around;
+  margin: 10vh auto;
+
+}
+
+ //uploaded
+ .uploaded-main-card-head{
+  text-align: center;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  justify-content: space-evenly;
+
+}
+
+.icon{
+  color: #219653;
+  font-size: 35px;
+  width: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #F6F8FB;
+  overflow: hidden;
+  text-align: left;
+  width: 300px;
+  padding: 10px;
+}
+
+.link p{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0px;
+}
+
+.link{
+  background-color: #F6F8FB;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  padding: 4%;
+}
+
+img{
+  margin: 5% auto;
+  width: 300px;
+}

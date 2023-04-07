@@ -1,0 +1,27 @@
+<mat-card class="main-card">
+  <mat-card-header class="main-card-head">
+      <mat-card-title>Upload your image</mat-card-title>
+      <mat-card-subtitle>File should be jpeg, png...</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content appDropZone class="img-bg" (fileDropped)="uploader.addToQueue($event)">
+  <img mat-card-sm-image src="../../assets/images/add-image (1).png">
+
+      <p>Drag and drop your image here</p>
+  </mat-card-content >
+
+  <mat-card-content>
+      <p>Or</p>
+  </mat-card-content>
+  <mat-card-actions>
+    <!-- <form actions="/api/v1/images" method="post" enctype="multipart/form-data"> -->
+    <form enctype="multipart/form-data">
+      <input type="file" name="image" #imageUploaderInput ng2FileSelect
+      [uploader]="uploader" style="display: none" (change)="onFileSelect($event)" accept="image/*">
+      <button mat-raised-button color="primary" (click)="chooseFile(imageUploaderInput, $event)" >Choose a file</button>
+
+    </form>
+
+  </mat-card-actions>
+
+</mat-card>
+

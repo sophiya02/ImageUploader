@@ -1,0 +1,53 @@
+.main-card {
+  width: max-content;
+  height: max-content;
+  padding: 2.5rem;
+  border-radius: 12px;
+  align-items: center;
+  justify-content: space-around;
+  margin: 10vh auto;
+
+}
+
+.main-card-head{
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+
+}
+
+mat-card-title, mat-card-subtitle{
+  font-family: 'Poppins', sans-serif;
+}
+
+.img-bg{
+  margin: 0 auto;
+  margin: 10% auto;
+  background-color: #F6F8FB;
+  border: 1px dashed #97BEF4;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.img-bg img{
+  margin: 3rem 0% 1rem;
+}
+
+.img-bg p{
+  margin: 0rem 3rem 3rem;
+}
+
+
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+
+
+
+
+
