@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { FileItem } from 'ng2-file-upload/file-upload/file-item.class';
 import { FileUploader } from 'ng2-file-upload';
 
-const url = 'http://localhost:3000/api/v1/image';
+const url = 'https://image-uploader-bakcend.onrender.com/api/v1/image';
 
 @Component({
   selector: 'app-image-upload',

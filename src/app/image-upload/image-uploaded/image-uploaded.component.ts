@@ -15,7 +15,7 @@ export class ImageUploadedComponent implements OnInit {
   ngOnInit(){
     this.router.queryParams.subscribe(params =>{
       // this.link = params['uploadedImageUrl'];
-      this.link=`../../../assets/images/${params['name']}`;
+      this.link=`../../../../server/uploads/${params['name']}`;
     })
   }
 

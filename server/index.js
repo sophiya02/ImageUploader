@@ -2,7 +2,7 @@ const express= require('express');
 const multer = require('multer');
 const cors= require('cors');
 const bodyParser = require('body-parser');
-const PATH = '../src/assets/images'
+const PATH = './uploads';
 let storage = multer.diskStorage({
   destination: (req, file, cb)=>{
     cb(null, PATH)
