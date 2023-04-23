@@ -3,7 +3,8 @@ import { Router } from '@angular/router';
 import { FileItem } from 'ng2-file-upload/file-upload/file-item.class';
 import { FileUploader } from 'ng2-file-upload';
 
-const url = 'https://image-uploader-bakcend.onrender.com/api/v1/image';
+// const url = 'https://image-uploader-bakcend.onrender.com/api/v1/image';
+const url = 'http://localhost:3000/api/v1/image';
 
 @Component({
   selector: 'app-image-upload',
@@ -25,13 +26,13 @@ export class ImageUploadComponent implements OnInit {
     event.preventDefault();
     const input = event.target as HTMLInputElement;
     // const file = input.files[0] ;
-    console.log('Selected input:', input);
+    // console.log('Selected input:', input);
   }
 
   chooseFile(input: HTMLInputElement , event: Event){
     event.preventDefault();
     input.click()
-    console.log(event);
+    // console.log(event);
     this.uploader.uploadAll();
   }
 
@@ -56,11 +57,12 @@ export class ImageUploadComponent implements OnInit {
     }
     this.uploader.onCompleteItem = (item: FileItem, response: any, status: any) => {
       const res = JSON.parse(response)
-      console.log('item', item);
-      console.log('response.uploadedImageUrl', res.filename)
+      // console.log('item', item);
+      // console.log('res',res);
+      // console.log('response.secure_url', res.image.url)
       // this.toastr.success('File Succesfully uploaded');
       // this.router.navigate(['/image-uploaded'], {queryParams: {uploadedImageUrl: `C:\\Users\\Lenovo\\Desktop\\projects\\frontend_projects\\image-uploader\]server\\uploads\\${item._file.name}`}});
-      this.router.navigate(['image-upload/image-uploaded'], {queryParams:{name: res.filename}})
+      this.router.navigate(['image-upload/image-uploaded'], {queryParams:{url: res.image.url}})
 
     }
   }

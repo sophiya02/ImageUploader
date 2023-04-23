@@ -1,20 +1,10 @@
 const express= require('express');
-const multer = require('multer');
+
 const cors= require('cors');
 const bodyParser = require('body-parser');
-const PATH = './uploads';
-let storage = multer.diskStorage({
-  destination: (req, file, cb)=>{
-    cb(null, PATH)
-  },
-  filename: (req, file, cb) =>{
-    cb(null, file.fieldname + '_' + Date.now())
-  }
-});
-
-let upload = multer({
-  storage: storage
-})
+const imageRouter = require('./routes/image')
+const connect = require('./db/connect')
+require('dotenv').config();
 
 const app = express();
 app.use(cors());
@@ -28,35 +18,21 @@ app.get('/', (req, res)=>{
 // app.get('/api', (req, res)=>{
 //   res.end('File Catcher');
 // })
-app.post('/api/v1/image', upload.single('image'), (req, res)=>{
-  // console.log("req", req);
-  if(!req.file) {
-    console.log("no file is available");
-    return res.send({
-      success: false
+app.use('/api/v1/image', imageRouter)
+const PORT= process.env.port || 3000;
+const start = async () =>{
+  try{
+    await connect(process.env.MONGO_URI);
+    app.listen(PORT, ()=>{
+      console.log(`app listening on port ${PORT}`)
     })
-  } else {
-    console.log('file is available');
-    // const uploadedImageUrl= `${req.protocol}://${req.hostname}:3000/uploads/${req.file.filename}`;
-    const filename= `${req.file.filename}`;
-    res.json({filename})
   }
-})
+  catch(err){
+    console.log(`unable to listen on ${PORT}`);
+  }
+}
 
-const server = app.listen(3000, ()=>{
-  console.log('connected to port 3000...')
-})
-
-// app.use((req, res, next) =>{
-//   next(createError(404));
-// })
-
-// app.use((err, req, res, next) =>{
-//   console.error(err.message);
-//   if(!err.statusCode) err.statusCode = 500;
-//   res.status(err.statusCode).send(err.message);
-// });
-
+start();
 
 
 
