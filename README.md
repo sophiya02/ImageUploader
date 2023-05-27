@@ -25,6 +25,8 @@ Intermediate
 
 >This project is to check my fullstack skills using MEAN, _submitted-to_ *devchallenges.io*
 
+## Figma - [link](https://www.figma.com/file/NxbZm3CAovYh89dFXe7EOw/Image-Uploader?type=design&node-id=0-1&t=bCK9d3JLB9r5Johv-0)
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
